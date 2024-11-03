@@ -30,7 +30,7 @@
 
 1. 克隆仓库：
    ```bash
-   git clone https://github.com/GzGod/Dawn
+   git clone https://github.com/GzGod/Dawn_ProMax
    ```
 2. 创建并激活虚拟环境：
    ```bash
