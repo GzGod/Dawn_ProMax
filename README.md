@@ -1,101 +1,106 @@
-# Dawn Extension Bot [1.4]
-
+# Dawn Extension Bot [1.5] 本地模型识别
+# 原作者https://github.com/Jaammerr/The-Dawn-Bot 防止正义人士
 <div align="center">
-  <img src="./console/images/console.png" alt="Dawn Extension Bot Console" width="600"/>
+  <img src="./console/1.png" alt="Dawn Extension Bot Console" width="600"/>
 </div>
 
 
-**Channel: [https://t.me/JamBitPY](https://t.me/JamBitPY)**
+**我的推特: [@Hy78516012，如果觉得有用请给我点个关注吧)**
 
-**Chat: [https://t.me/JamBitChat](https://t.me/JamBitChat)**
-
-**Donation EVM Address: 0xe23380ae575D990BebB3b81DB2F90Ce7eDbB6dDa**
 
 ---
 
-## 🚀 Features
+## 🚀 功能
 
-- ✅ Automatic account registration and login
-- 🌾 Automated completion of all tasks
-- 💰 Automated farming of points
-- 📊 Export account statistics
-- 🔄 Keepalive functionality to maintain session
-- 🧩 Advanced captcha solving
+- ✅ 自动账户注册和登录
+- 📧 自动账户重新验证
+- 🌾 自动完成所有任务
+- 💰 自动获取积分
+- 📊 导出账户统计数据
+- 🔄 保持会话功能
+- 🧩 高级跳码
 
 ---
 
-## 💻 Requirements
+## 💻 环境及需要的账户
 
 - Python >= 3.11
-- Internet connection
-- Valid email accounts for registration
-- Valid proxies (optional)
+- 安装Python虚拟环境
+- 能注册DAWN的邮箱号
+- 代理IP（可选）
 
 ---
 
-## 🛠️ Setup
+## 🛠️ 设置
 
-1. Clone the repository:
+1. 克隆仓库：
    ```bash
-   git clone [repository URL]
+   git clone https://github.com/GzGod/Dawn
    ```
-2. Create and activate a virtual environment:
+2. 创建并激活虚拟环境：
    ```bash
+   Windows系统：
    python -m venv venv
    cd venv/Scripts
    activate
+   Linux（服务器）：
+   python3 -m venv venv
+   cd venv/bin
+   source activate
    cd ../..
    ```
-3. Install dependencies:
+3. 安装依赖：
    ```bash
    pip install -r requirements.txt
    ```
 
 ---
 
-## ⚙️ Configuration
+## ⚙️ 配置
 
 ### settings.yaml
 
-This file contains general settings for the bot:
+该文件包含机器人的常规设置：
 
 ```yaml
-threads: 5 # Number of threads for simultaneous account operations
-keepalive_interval: 120 # Delay between keepalive requests in seconds
-captcha_service: "2captcha" # Service for solving captcha (2captcha or anticaptcha)
+threads: 5 # 同时进行账户操作的线程数
+keepalive_interval: 120 # 保持会话请求之间的延迟（秒）
+referral_code: "YOUR_REFERRAL_CODE" # 注册推荐码
+captcha_service: "2captcha" # 验证码解决服务（2captcha或anticaptcha都可以）
 two_captcha_api_key: "YOUR_2CAPTCHA_API_KEY"
 anti_captcha_api_key: "YOUR_ANTICAPTCHA_API_KEY"
 
-imap_settings: # IMAP settings for email providers
+imap_settings: # 电子邮件提供商的IMAP设置
   gmail.com: imap.gmail.com
   outlook.com: imap-mail.outlook.com
-  # Add more email providers as needed
+  # 根据需要添加更多电子邮件提供商
 ```
 
-### Other Configuration Files
+### 其他配置文件
 
 #### 📁 register.txt
-Contains accounts for registration.
+包含注册账户信息。注意 这里的邮箱的password需要的是imap授权码，小白不建议用这种
+老老实实注册然后填在farm.txt即可
 ```
-Format:
+格式：
 email:password
 email:password
 ...
 ```
 
 #### 📁 farm.txt
-Contains accounts for farming and task completion.
+包含用于获取积分和完成任务的账户信息。
 ```
-Format:
+格式：
 email:password
 email:password
 ...
 ```
 
 #### 📁 proxies.txt
-Contains proxy information.
+包含代理信息。
 ```
-Format:
+格式：
 http://user:pass@ip:port
 http://ip:port:user:pass
 http://ip:port@user:pass
@@ -105,29 +110,30 @@ http://user:pass:ip:port
 
 ---
 
-## 🚀 Usage
+## 🚀 使用
 
-1. Ensure all configuration files are set up correctly.
-2. Run the bot:
+1. 确保所有配置文件已正确设置。
+2. 运行机器人：
    ```bash
    python run.py
    ```
 
 ---
 
-## ⚠️ Important Notes
+## ⚠️ 重要提示
 
-- The recommended delay between keepalive requests is 120 seconds.
-- Captcha solving now uses external services (2captcha, anti-captcha) due to changes in captcha complexity.
-- A database is used to optimize login processes by storing authorization tokens.
-- For email services like Gmail, you may need to use application-specific passwords instead of regular email passwords.
+- 建议的保持会话请求之间的延迟为120秒。
+- 如果有未验证的账户，可以再次使用`register`模块重新验证。
+- 由于验证码复杂性的变化，现在使用外部服务（2captcha，anti-captcha）来解决验证码。
+- 使用数据库来优化登录过程，通过存储授权令牌。
+- 对于像Gmail这样的电子邮件服务，可能需要使用应用程序专用密码而不是常规电子邮件密码。
 
 ---
 
-## 🔧 Troubleshooting
+## 🔧 问题排查
 
-- **Email Verification Issues**: Check your email provider's IMAP settings in `settings.yaml`.
-- **Captcha Problems**: Verify your captcha service API key and account balance.
-- **Proxy Issues**: Ensure your proxy format is correct and the proxies are functional.
+- **Email Verification Issues**：检查`settings.yaml`中的电子邮件提供商IMAP设置。
+- **Captcha Problems**：验证您的验证码服务API密钥和账户余额。
+- **Proxy Issues**：确保您的代理格式正确且代理功能正常。
 
 ---
