@@ -1,12 +1,7 @@
 # Dawn Extension Bot [1.5] 本地模型识别
 # 原作者https://github.com/Jaammerr/The-Dawn-Bot 防止正义人士
-<div align="center">
-  <img src="./console/1.png" alt="Dawn Extension Bot Console" width="600"/>
-</div>
-
-
 **我的推特: [@Hy78516012，如果觉得有用请给我点个关注吧)**
-
+# 如果想支持我，可以给捐赠地址发一杯可乐钱：0x9f2a573c1396f2eccd19c96a75a8e9e85c2f7a62（BSC链）
 
 ---
 
@@ -66,9 +61,9 @@
 threads: 5 # 同时进行账户操作的线程数
 keepalive_interval: 120 # 保持会话请求之间的延迟（秒）
 referral_code: "YOUR_REFERRAL_CODE" # 注册推荐码
-captcha_service: "2captcha" # 验证码解决服务（2captcha或anticaptcha都可以）
-two_captcha_api_key: "YOUR_2CAPTCHA_API_KEY"
-anti_captcha_api_key: "YOUR_ANTICAPTCHA_API_KEY"
+captcha_service: "2captcha" # 验证码解决服务（2captcha或anticaptcha都可以）本版本不需要
+two_captcha_api_key: "YOUR_2CAPTCHA_API_KEY" 本版本不需要
+anti_captcha_api_key: "YOUR_ANTICAPTCHA_API_KEY" 本版本不需要
 
 imap_settings: # 电子邮件提供商的IMAP设置
   gmail.com: imap.gmail.com
